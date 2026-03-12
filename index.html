@@ -6,55 +6,111 @@
     <title>High Capacity Extension Materials - Unit 5</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         
         body {
             font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
+            background-color: #f8fafc; /* Color de fondo más suave */
         }
 
         .tab-content {
             display: none;
+            animation: fadeIn 0.3s ease-in-out;
         }
 
         .tab-content.active {
             display: block;
         }
 
-        .nav-btn.active {
-            border-bottom: 2px solid #2563eb;
-            color: #2563eb;
-            font-weight: 700;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Estilos mejorados para las pestañas de navegación */
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #64748b;
+            border-bottom: 2px solid transparent;
         }
         
+        .nav-btn:hover {
+            color: #3b82f6;
+            background-color: #eff6ff;
+            border-radius: 0.5rem 0.5rem 0 0;
+        }
+
+        .nav-btn.active {
+            border-bottom: 2px solid #2563eb;
+            color: #1d4ed8;
+            font-weight: 600;
+            background-color: #eff6ff;
+            border-radius: 0.5rem 0.5rem 0 0;
+        }
+        
+        /* Estilos mejorados para los campos de entrada */
         input[type="text"], textarea {
             width: 100%;
-            padding: 8px;
-            border: 1px solid #d1d5db;
-            border-radius: 4px;
-            margin-top: 5px;
-            margin-bottom: 10px;
+            padding: 10px 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 0.5rem;
+            margin-top: 6px;
+            margin-bottom: 12px;
+            transition: all 0.2s;
+            background-color: #fcfcfc;
+        }
+
+        input[type="text"]:focus, textarea:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+            background-color: #ffffff;
         }
 
         .card {
             background: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-            padding: 24px;
-            margin-bottom: 20px;
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+            padding: 28px;
+            margin-bottom: 24px;
+            border: 1px solid #f1f5f9;
+        }
+        
+        /* Iconos SVG básicos integrados */
+        .icon {
+            width: 1.25rem;
+            height: 1.25rem;
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="text-slate-800">
 
-    <header class="bg-white border-b sticky top-0 z-10">
-        <div class="max-w-5xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center">
-            <h1 class="text-xl font-bold text-blue-600">Unit 5: The Evolution of Play & Perception</h1>
-            <nav class="flex space-x-4 mt-4 md:mt-0 overflow-x-auto">
-                <button onclick="showTab('reading')" id="btn-reading" class="nav-btn px-3 py-2 transition-colors active">Reading</button>
-                <button onclick="showTab('activities')" id="btn-activities" class="nav-btn px-3 py-2 transition-colors">Activities</button>
-                <button onclick="showTab('project')" id="btn-project" class="nav-btn px-3 py-2 transition-colors">Research Project</button>
-                <button onclick="showTab('assessment')" id="btn-assessment" class="nav-btn px-3 py-2 transition-colors">Self-Assessment</button>
+    <!-- Encabezado con un degradado sutil -->
+    <header class="bg-white border-b sticky top-0 z-10 shadow-sm">
+        <div class="max-w-5xl mx-auto px-4 py-3 flex flex-col md:flex-row justify-between items-center">
+            <h1 class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">
+                Unit 5: The Evolution of Play & Perception
+            </h1>
+            <nav class="flex space-x-2 mt-4 md:mt-0 overflow-x-auto w-full md:w-auto pb-1 md:pb-0">
+                <button onclick="showTab('reading')" id="btn-reading" class="nav-btn px-4 py-2 transition-all active">
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    Reading
+                </button>
+                <button onclick="showTab('activities')" id="btn-activities" class="nav-btn px-4 py-2 transition-all">
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
+                    Activities
+                </button>
+                <button onclick="showTab('project')" id="btn-project" class="nav-btn px-4 py-2 transition-all">
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                    Project
+                </button>
+                <button onclick="showTab('assessment')" id="btn-assessment" class="nav-btn px-4 py-2 transition-all">
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Assessment
+                </button>
             </nav>
         </div>
     </header>
@@ -63,16 +119,19 @@
 
         <!-- Reading Tab -->
         <section id="reading" class="tab-content active">
-            <div class="card">
-                <h2 class="text-2xl font-bold mb-4">Beyond the Screen: The Science of Pro-Gaming</h2>
-                <div class="prose max-w-none text-lg leading-relaxed space-y-4">
-                    <p>In the past, people <strong>couldn’t</strong> imagine that playing video games would become a professional career. However, the human brain is more adaptable than we thought. Pro-gamers today don’t just play; they train their <strong>senses</strong> to a level that normal people <strong>can't</strong> reach without practice.</p>
+            <div class="card relative overflow-hidden">
+                <!-- Acento visual en la tarjeta -->
+                <div class="absolute top-0 left-0 w-1 h-full bg-blue-500"></div>
+                
+                <h2 class="text-3xl font-bold mb-6 text-slate-800">Beyond the Screen: The Science of Pro-Gaming</h2>
+                <div class="prose max-w-none text-lg leading-relaxed space-y-5 text-slate-700">
+                    <p>In the past, people <strong class="text-indigo-600 bg-indigo-50 px-1 rounded">couldn’t</strong> imagine that playing video games would become a professional career. However, the human brain is more adaptable than we thought. Pro-gamers today don’t just play; they train their <strong>senses</strong> to a level that normal people <strong class="text-indigo-600 bg-indigo-50 px-1 rounded">can't</strong> reach without practice.</p>
                     
-                    <p>When a professional player is in a competition, they must react <strong>more instantly</strong> than a casual player. Their eyes move <strong>more rapidly</strong> across the screen, identifying threats through peripheral vision. This is related to our sense of sight, but also to "proprioception" (the sense of self-movement and body position).</p>
+                    <p>When a professional player is in a competition, they must react <strong class="text-emerald-600 bg-emerald-50 px-1 rounded">more instantly</strong> than a casual player. Their eyes move <strong class="text-emerald-600 bg-emerald-50 px-1 rounded">more rapidly</strong> across the screen, identifying threats through peripheral vision. This is related to our sense of sight, but also to "proprioception" (the sense of self-movement and body position).</p>
                     
-                    <p>In terms of cognitive ability, a pro-gamer <strong>can</strong> process information <strong>more efficiently</strong> because their brain creates shortcuts. While a beginner might think "I need to press the X button now", a pro does it <strong>automatically</strong>. Interestingly, research shows that playing strategic video games can help people perform <strong>better</strong> in real-life tasks, such as driving or performing surgery, because they can handle stress <strong>more calmly</strong> than others.</p>
+                    <p>In terms of cognitive ability, a pro-gamer <strong class="text-indigo-600 bg-indigo-50 px-1 rounded">can</strong> process information <strong class="text-emerald-600 bg-emerald-50 px-1 rounded">more efficiently</strong> because their brain creates shortcuts. While a beginner might think "I need to press the X button now", a pro does it <strong>automatically</strong>. Interestingly, research shows that playing strategic video games can help people perform <strong class="text-emerald-600 bg-emerald-50 px-1 rounded">better</strong> in real-life tasks, such as driving or performing surgery, because they can handle stress <strong class="text-emerald-600 bg-emerald-50 px-1 rounded">more calmly</strong> than others.</p>
                     
-                    <p>As games evolve into Virtual Reality (VR), our senses of balance and touch are becoming more important. In the future, we <strong>will be able to</strong> feel the texture of objects in a digital world. The question is: if our senses are perfectly fooled, <strong>can</strong> we still distinguish between what is real and what is "just a game"?</p>
+                    <p>As games evolve into Virtual Reality (VR), our senses of balance and touch are becoming more important. In the future, we <strong class="text-indigo-600 bg-indigo-50 px-1 rounded">will be able to</strong> feel the texture of objects in a digital world. The question is: if our senses are perfectly fooled, <strong class="text-indigo-600 bg-indigo-50 px-1 rounded">can</strong> we still distinguish between what is real and what is "just a game"?</p>
                 </div>
             </div>
         </section>
@@ -80,74 +139,119 @@
         <!-- Activities Tab -->
         <section id="activities" class="tab-content">
             <div class="card">
-                <h2 class="text-2xl font-bold mb-4">Exercise 1: Semantic Analysis</h2>
-                <p class="mb-4 italic">Locate four comparative adverbs in the text and replace them with high-level synonyms.</p>
-                <div class="space-y-4">
-                    <div>
-                        <label>1. Original Adverb 1:</label>
-                        <input type="text" placeholder="e.g., more rapidly">
-                        <label>Replacement Synonym:</label>
-                        <input type="text" placeholder="e.g., at a faster pace">
+                <h2 class="text-2xl font-bold mb-2 flex items-center gap-2">
+                    <span class="bg-blue-100 text-blue-700 w-8 h-8 rounded-full flex items-center justify-center text-sm">1</span> 
+                    Exercise 1: Semantic Analysis
+                </h2>
+                <p class="mb-5 text-slate-500 italic">Locate four comparative adverbs in the text and replace them with high-level synonyms.</p>
+                <div class="space-y-4 bg-slate-50 p-5 rounded-lg border border-slate-100">
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <div class="flex-1">
+                            <label class="text-sm font-semibold text-slate-700">1. Original Adverb 1:</label>
+                            <input type="text" id="sem-orig-1" placeholder="e.g., more rapidly">
+                        </div>
+                        <div class="flex-1">
+                            <label class="text-sm font-semibold text-slate-700">Replacement Synonym:</label>
+                            <input type="text" id="sem-rep-1" placeholder="e.g., at a faster pace">
+                        </div>
                     </div>
-                    <div>
-                        <label>2. Original Adverb 2:</label>
-                        <input type="text">
-                        <label>Replacement Synonym:</label>
-                        <input type="text">
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <div class="flex-1">
+                            <label class="text-sm font-semibold text-slate-700">2. Original Adverb 2:</label>
+                            <input type="text" id="sem-orig-2">
+                        </div>
+                        <div class="flex-1">
+                            <label class="text-sm font-semibold text-slate-700">Replacement Synonym:</label>
+                            <input type="text" id="sem-rep-2">
+                        </div>
                     </div>
                 </div>
-                <h3 class="font-bold mt-6 mb-2">Challenge Questions</h3>
-                <p>Explain the difference between the sense of "touch" and "proprioception" based on your research:</p>
-                <textarea rows="3"></textarea>
+                
+                <h3 class="font-bold mt-6 mb-2 text-indigo-700">Challenge Question</h3>
+                <p class="text-slate-600 text-sm mb-2">Explain the difference between the sense of "touch" and "proprioception" based on your research:</p>
+                <textarea id="sem-chal" rows="3" placeholder="Write your analysis here..."></textarea>
             </div>
 
             <div class="card">
-                <h2 class="text-2xl font-bold mb-4">Exercise 2: Modal Logic</h2>
-                <p class="mb-4 italic">Complete the reflections using (can / could / will be able to).</p>
+                <h2 class="text-2xl font-bold mb-2 flex items-center gap-2">
+                    <span class="bg-blue-100 text-blue-700 w-8 h-8 rounded-full flex items-center justify-center text-sm">2</span> 
+                    Exercise 2: Modal Logic
+                </h2>
+                <p class="mb-5 text-slate-500 italic">Complete the reflections using (can / could / will be able to).</p>
                 <div class="space-y-4">
-                    <p>1. In the 1980s, players <input type="text" class="w-40 inline-block" style="width: 150px;"> (not/experience) 4K graphics.</p>
-                    <p>2. Nowadays, AI <input type="text" class="w-40 inline-block" style="width: 150px;"> (beat) the best chess players easily.</p>
-                    <p>3. In the future, humans <input type="text" class="w-40 inline-block" style="width: 150px;"> (connect) their brains directly.</p>
+                    <div class="flex flex-wrap items-center gap-2 bg-slate-50 p-3 rounded-md">
+                        <span class="font-medium text-slate-700">1.</span> In the 1980s, players 
+                        <input type="text" id="mod-1" class="w-40 inline-block m-0" style="margin: 0; padding: 6px;"> 
+                        (not/experience) 4K graphics.
+                    </div>
+                    <div class="flex flex-wrap items-center gap-2 bg-slate-50 p-3 rounded-md">
+                        <span class="font-medium text-slate-700">2.</span> Nowadays, AI 
+                        <input type="text" id="mod-2" class="w-40 inline-block m-0" style="margin: 0; padding: 6px;"> 
+                        (beat) the best chess players easily.
+                    </div>
+                    <div class="flex flex-wrap items-center gap-2 bg-slate-50 p-3 rounded-md">
+                        <span class="font-medium text-slate-700">3.</span> In the future, humans 
+                        <input type="text" id="mod-3" class="w-40 inline-block m-0" style="margin: 0; padding: 6px;"> 
+                        (connect) their brains directly.
+                    </div>
                 </div>
             </div>
 
             <div class="card">
-                <h2 class="text-2xl font-bold mb-4">Exercise 3: The Adverbial Gradient</h2>
-                <p class="mb-4">Original: "You must move the joystick <strong>slowly</strong> to avoid the trap."</p>
-                <label>Variant A (Comparative):</label>
-                <input type="text" placeholder="Rewrite the sentence...">
-                <label>Variant B (Superlative):</label>
-                <input type="text" placeholder="Rewrite the sentence...">
-                <label class="block mt-4">Which variant implies the highest risk? Why?</label>
-                <textarea rows="2"></textarea>
+                <h2 class="text-2xl font-bold mb-2 flex items-center gap-2">
+                    <span class="bg-blue-100 text-blue-700 w-8 h-8 rounded-full flex items-center justify-center text-sm">3</span> 
+                    Exercise 3: The Adverbial Gradient
+                </h2>
+                <p class="mb-4 text-slate-700 bg-amber-50 p-3 rounded border border-amber-100">
+                    Original: "You must move the joystick <strong>slowly</strong> to avoid the trap."
+                </p>
+                
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="text-sm font-semibold text-slate-700">Variant A (Comparative):</label>
+                        <input type="text" id="grad-a" placeholder="Rewrite the sentence...">
+                    </div>
+                    <div>
+                        <label class="text-sm font-semibold text-slate-700">Variant B (Superlative):</label>
+                        <input type="text" id="grad-b" placeholder="Rewrite the sentence...">
+                    </div>
+                </div>
+                
+                <label class="block mt-4 text-sm font-semibold text-slate-700">Which variant implies the highest risk? Why?</label>
+                <textarea id="grad-chal" rows="2" placeholder="Justify your answer..."></textarea>
             </div>
         </section>
 
         <!-- Project Tab -->
         <section id="project" class="tab-content">
-            <div class="card border-l-4 border-blue-500">
-                <h2 class="text-2xl font-bold mb-4">Research Project: The Ludic Evolution</h2>
-                <p class="mb-4 text-gray-600">Choose one topic to investigate and create a digital report.</p>
-                <div class="grid md:grid-cols-3 gap-4">
-                    <div class="p-4 bg-blue-50 rounded-lg">
-                        <h3 class="font-bold mb-2">1. Ancient Strategy</h3>
-                        <p class="text-sm">Research "The Royal Game of Ur". How could they play without modern tech?</p>
+            <div class="card border-l-4 border-indigo-500">
+                <h2 class="text-2xl font-bold mb-2">Research Project: The Ludic Evolution</h2>
+                <p class="mb-6 text-slate-500">Choose one topic to investigate and create a digital report.</p>
+                
+                <div class="grid md:grid-cols-3 gap-5">
+                    <div class="p-5 bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl border border-blue-200 transition-transform hover:-translate-y-1">
+                        <h3 class="font-bold text-blue-800 mb-2">1. Ancient Strategy</h3>
+                        <p class="text-sm text-blue-900 leading-relaxed">Research "The Royal Game of Ur". How could they play without modern tech?</p>
                     </div>
-                    <div class="p-4 bg-green-50 rounded-lg">
-                        <h3 class="font-bold mb-2">2. The Theory of Flow</h3>
-                        <p class="text-sm">Research Mihaly Csikszentmihalyi. How do games keep us in 'The Flow'?</p>
+                    <div class="p-5 bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-xl border border-emerald-200 transition-transform hover:-translate-y-1">
+                        <h3 class="font-bold text-emerald-800 mb-2">2. The Theory of Flow</h3>
+                        <p class="text-sm text-emerald-900 leading-relaxed">Research Mihaly Csikszentmihalyi. How do games keep us in 'The Flow'?</p>
                     </div>
-                    <div class="p-4 bg-purple-50 rounded-lg">
-                        <h3 class="font-bold mb-2">3. Inclusive Gaming</h3>
-                        <p class="text-sm">How can people with sensory disabilities play successfully today?</p>
+                    <div class="p-5 bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl border border-purple-200 transition-transform hover:-translate-y-1">
+                        <h3 class="font-bold text-purple-800 mb-2">3. Inclusive Gaming</h3>
+                        <p class="text-sm text-purple-900 leading-relaxed">How can people with sensory disabilities play successfully today?</p>
                     </div>
                 </div>
-                <div class="mt-6">
-                    <h4 class="font-bold">Project Requirements Checklist:</h4>
-                    <ul class="list-disc ml-5 mt-2 space-y-1 text-sm">
-                        <li>Past vs. Present/Future comparison (Could / Will).</li>
-                        <li>At least 5 advanced manner adverbs (accurately, skillfully...).</li>
-                        <li>Citations from at least two different sources.</li>
+                
+                <div class="mt-8 bg-slate-50 p-5 rounded-lg border border-slate-200">
+                    <h4 class="font-bold flex items-center gap-2 text-slate-800">
+                        <svg class="icon text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+                        Project Requirements Checklist:
+                    </h4>
+                    <ul class="list-none ml-2 mt-3 space-y-2 text-sm text-slate-700">
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-indigo-500 rounded-full"></div> Past vs. Present/Future comparison (Could / Will).</li>
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-indigo-500 rounded-full"></div> At least 5 advanced manner adverbs (accurately, skillfully...).</li>
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-indigo-500 rounded-full"></div> Citations from at least two different sources.</li>
                     </ul>
                 </div>
             </div>
@@ -157,77 +261,142 @@
         <section id="assessment" class="tab-content">
             <div class="card">
                 <h2 class="text-2xl font-bold mb-4">Self-Assessment Rubric</h2>
-                <div class="overflow-x-auto">
+                <div class="overflow-x-auto rounded-lg border border-slate-200 shadow-sm">
                     <table class="w-full text-left border-collapse">
                         <thead>
-                            <tr class="bg-gray-100">
-                                <th class="p-3 border">Criteria</th>
-                                <th class="p-3 border text-center">Excellent</th>
-                                <th class="p-3 border text-center">Adequate</th>
-                                <th class="p-3 border text-center">Needs Improvement</th>
+                            <tr class="bg-slate-100 text-slate-700">
+                                <th class="p-4 border-b font-semibold">Criteria</th>
+                                <th class="p-4 border-b text-center font-semibold text-emerald-600">Excellent</th>
+                                <th class="p-4 border-b text-center font-semibold text-amber-500">Adequate</th>
+                                <th class="p-4 border-b text-center font-semibold text-rose-500">Needs Improvement</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td class="p-3 border font-semibold">Reading Comprehension</td>
-                                <td class="p-3 border text-center"><input type="radio" name="r1"></td>
-                                <td class="p-3 border text-center"><input type="radio" name="r1"></td>
-                                <td class="p-3 border text-center"><input type="radio" name="r1"></td>
+                        <tbody class="divide-y divide-slate-100">
+                            <!-- Los radios ahora tienen el atributo 'value' para poder exportarlos -->
+                            <tr class="hover:bg-slate-50 transition-colors">
+                                <td class="p-4 text-sm font-medium text-slate-800">Reading Comprehension</td>
+                                <td class="p-4 text-center"><input type="radio" name="r1" value="Excellent" class="w-4 h-4 text-blue-600"></td>
+                                <td class="p-4 text-center"><input type="radio" name="r1" value="Adequate" class="w-4 h-4 text-blue-600"></td>
+                                <td class="p-4 text-center"><input type="radio" name="r1" value="Needs Improvement" class="w-4 h-4 text-blue-600"></td>
                             </tr>
-                            <tr>
-                                <td class="p-3 border font-semibold">Use of Modals</td>
-                                <td class="p-3 border text-center"><input type="radio" name="r2"></td>
-                                <td class="p-3 border text-center"><input type="radio" name="r2"></td>
-                                <td class="p-3 border text-center"><input type="radio" name="r2"></td>
+                            <tr class="hover:bg-slate-50 transition-colors">
+                                <td class="p-4 text-sm font-medium text-slate-800">Use of Modals</td>
+                                <td class="p-4 text-center"><input type="radio" name="r2" value="Excellent" class="w-4 h-4 text-blue-600"></td>
+                                <td class="p-4 text-center"><input type="radio" name="r2" value="Adequate" class="w-4 h-4 text-blue-600"></td>
+                                <td class="p-4 text-center"><input type="radio" name="r2" value="Needs Improvement" class="w-4 h-4 text-blue-600"></td>
                             </tr>
-                            <tr>
-                                <td class="p-3 border font-semibold">Research Quality</td>
-                                <td class="p-3 border text-center"><input type="radio" name="r3"></td>
-                                <td class="p-3 border text-center"><input type="radio" name="r3"></td>
-                                <td class="p-3 border text-center"><input type="radio" name="r3"></td>
+                            <tr class="hover:bg-slate-50 transition-colors">
+                                <td class="p-4 text-sm font-medium text-slate-800">Research Quality</td>
+                                <td class="p-4 text-center"><input type="radio" name="r3" value="Excellent" class="w-4 h-4 text-blue-600"></td>
+                                <td class="p-4 text-center"><input type="radio" name="r3" value="Adequate" class="w-4 h-4 text-blue-600"></td>
+                                <td class="p-4 text-center"><input type="radio" name="r3" value="Needs Improvement" class="w-4 h-4 text-blue-600"></td>
                             </tr>
-                            <tr>
-                                <td class="p-3 border font-semibold">Language Production</td>
-                                <td class="p-3 border text-center"><input type="radio" name="r4"></td>
-                                <td class="p-3 border text-center"><input type="radio" name="r4"></td>
-                                <td class="p-3 border text-center"><input type="radio" name="r4"></td>
+                            <tr class="hover:bg-slate-50 transition-colors">
+                                <td class="p-4 text-sm font-medium text-slate-800">Language Production</td>
+                                <td class="p-4 text-center"><input type="radio" name="r4" value="Excellent" class="w-4 h-4 text-blue-600"></td>
+                                <td class="p-4 text-center"><input type="radio" name="r4" value="Adequate" class="w-4 h-4 text-blue-600"></td>
+                                <td class="p-4 text-center"><input type="radio" name="r4" value="Needs Improvement" class="w-4 h-4 text-blue-600"></td>
                             </tr>
-                            <tr>
-                                <td class="p-3 border font-semibold">Autonomy</td>
-                                <td class="p-3 border text-center"><input type="radio" name="r5"></td>
-                                <td class="p-3 border text-center"><input type="radio" name="r5"></td>
-                                <td class="p-3 border text-center"><input type="radio" name="r5"></td>
+                            <tr class="hover:bg-slate-50 transition-colors">
+                                <td class="p-4 text-sm font-medium text-slate-800">Autonomy</td>
+                                <td class="p-4 text-center"><input type="radio" name="r5" value="Excellent" class="w-4 h-4 text-blue-600"></td>
+                                <td class="p-4 text-center"><input type="radio" name="r5" value="Adequate" class="w-4 h-4 text-blue-600"></td>
+                                <td class="p-4 text-center"><input type="radio" name="r5" value="Needs Improvement" class="w-4 h-4 text-blue-600"></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                <div class="mt-6 p-4 bg-yellow-50 rounded">
-                    <p class="text-sm"><strong>Final Reflection:</strong> What was the most challenging part of this unit? How did you overcome it?</p>
-                    <textarea rows="3"></textarea>
+                
+                <div class="mt-6 p-5 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100 rounded-xl">
+                    <p class="text-sm font-semibold text-indigo-900 mb-2">Final Reflection:</p>
+                    <p class="text-sm text-indigo-700 mb-3">What was the most challenging part of this unit? How did you overcome it?</p>
+                    <textarea id="reflection" rows="3" class="border-indigo-200 focus:border-indigo-400 focus:ring-indigo-400"></textarea>
                 </div>
-                <button class="mt-4 bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition" onclick="window.print()">Save/Print My Progress</button>
+                
+                <!-- Botones de Acción (Imprimir y Exportar) -->
+                <div class="mt-6 flex flex-wrap gap-4">
+                    <button class="bg-slate-800 text-white px-6 py-2.5 rounded-lg hover:bg-slate-700 transition shadow flex items-center gap-2 font-medium" onclick="window.print()">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+                        Print Progress
+                    </button>
+                    <button class="bg-indigo-600 text-white px-6 py-2.5 rounded-lg hover:bg-indigo-700 transition shadow flex items-center gap-2 font-medium" onclick="exportData()">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                        Export My Data
+                    </button>
+                </div>
             </div>
         </section>
 
     </main>
 
     <script>
+        // Función para cambiar de pestaña
         function showTab(tabId) {
-            // Hide all tabs
             document.querySelectorAll('.tab-content').forEach(tab => {
                 tab.classList.remove('active');
             });
-            // Remove active from all buttons
             document.querySelectorAll('.nav-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
-            // Show selected tab
             document.getElementById(tabId).classList.add('active');
-            // Add active class to clicked button
             document.getElementById('btn-' + tabId).classList.add('active');
-            
-            // Scroll to top of main content
             window.scrollTo(0, 0);
+        }
+
+        // Función para exportar los datos a un archivo de texto plano
+        function exportData() {
+            // Función auxiliar para obtener el valor del input o indicar que no se contestó
+            const val = (id) => document.getElementById(id).value || "[Not answered]";
+            
+            // Función auxiliar para obtener el valor del radio button seleccionado
+            const radioVal = (name) => {
+                const checked = document.querySelector(`input[name="${name}"]:checked`);
+                return checked ? checked.value : "[Not evaluated]";
+            };
+
+            // Construir el string del documento
+            let dataStr = "=================================================\n";
+            dataStr += "  UNIT 5 EXTENSION: EVOLUTION OF PLAY & PERCEPTION \n";
+            dataStr += "=================================================\n\n";
+
+            dataStr += "--- EXERCISE 1: SEMANTIC ANALYSIS ---\n";
+            dataStr += `1. Original: ${val('sem-orig-1')} | Synonym: ${val('sem-rep-1')}\n`;
+            dataStr += `2. Original: ${val('sem-orig-2')} | Synonym: ${val('sem-rep-2')}\n`;
+            dataStr += `Challenge (Touch vs. Proprioception):\n${val('sem-chal')}\n\n`;
+
+            dataStr += "--- EXERCISE 2: MODAL LOGIC ---\n";
+            dataStr += `1. In the 1980s, players ${val('mod-1')} (not/experience) 4K graphics.\n`;
+            dataStr += `2. Nowadays, AI ${val('mod-2')} (beat) the best chess players easily.\n`;
+            dataStr += `3. In the future, humans ${val('mod-3')} (connect) their brains directly.\n\n`;
+
+            dataStr += "--- EXERCISE 3: THE ADVERBIAL GRADIENT ---\n";
+            dataStr += `Variant A (Comparative): ${val('grad-a')}\n`;
+            dataStr += `Variant B (Superlative): ${val('grad-b')}\n`;
+            dataStr += `Risk Analysis:\n${val('grad-chal')}\n\n`;
+
+            dataStr += "--- SELF-ASSESSMENT ---\n";
+            dataStr += `Reading Comprehension: ${radioVal('r1')}\n`;
+            dataStr += `Use of Modals: ${radioVal('r2')}\n`;
+            dataStr += `Research Quality: ${radioVal('r3')}\n`;
+            dataStr += `Language Production: ${radioVal('r4')}\n`;
+            dataStr += `Autonomy: ${radioVal('r5')}\n\n`;
+
+            dataStr += "--- FINAL REFLECTION ---\n";
+            dataStr += `${val('reflection')}\n`;
+
+            // Crear el archivo Blob y forzar su descarga
+            const blob = new Blob([dataStr], { type: 'text/plain;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'Unit5_Advanced_Work.txt';
+            document.body.appendChild(link);
+            link.click();
+            
+            // Limpieza
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
         }
     </script>
 </body>
