@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High Capacity Extension Materials - Unit 5</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .nav-btn.active {
+            border-bottom: 2px solid #2563eb;
+            color: #2563eb;
+            font-weight: 700;
+        }
+        
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <header class="bg-white border-b sticky top-0 z-10">
+        <div class="max-w-5xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center">
+            <h1 class="text-xl font-bold text-blue-600">Unit 5: The Evolution of Play & Perception</h1>
+            <nav class="flex space-x-4 mt-4 md:mt-0 overflow-x-auto">
+                <button onclick="showTab('reading')" id="btn-reading" class="nav-btn px-3 py-2 transition-colors active">Reading</button>
+                <button onclick="showTab('activities')" id="btn-activities" class="nav-btn px-3 py-2 transition-colors">Activities</button>
+                <button onclick="showTab('project')" id="btn-project" class="nav-btn px-3 py-2 transition-colors">Research Project</button>
+                <button onclick="showTab('assessment')" id="btn-assessment" class="nav-btn px-3 py-2 transition-colors">Self-Assessment</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 py-8">
+
+        <!-- Reading Tab -->
+        <section id="reading" class="tab-content active">
+            <div class="card">
+                <h2 class="text-2xl font-bold mb-4">Beyond the Screen: The Science of Pro-Gaming</h2>
+                <div class="prose max-w-none text-lg leading-relaxed space-y-4">
+                    <p>In the past, people <strong>couldn’t</strong> imagine that playing video games would become a professional career. However, the human brain is more adaptable than we thought. Pro-gamers today don’t just play; they train their <strong>senses</strong> to a level that normal people <strong>can't</strong> reach without practice.</p>
+                    
+                    <p>When a professional player is in a competition, they must react <strong>more instantly</strong> than a casual player. Their eyes move <strong>more rapidly</strong> across the screen, identifying threats through peripheral vision. This is related to our sense of sight, but also to "proprioception" (the sense of self-movement and body position).</p>
+                    
+                    <p>In terms of cognitive ability, a pro-gamer <strong>can</strong> process information <strong>more efficiently</strong> because their brain creates shortcuts. While a beginner might think "I need to press the X button now", a pro does it <strong>automatically</strong>. Interestingly, research shows that playing strategic video games can help people perform <strong>better</strong> in real-life tasks, such as driving or performing surgery, because they can handle stress <strong>more calmly</strong> than others.</p>
+                    
+                    <p>As games evolve into Virtual Reality (VR), our senses of balance and touch are becoming more important. In the future, we <strong>will be able to</strong> feel the texture of objects in a digital world. The question is: if our senses are perfectly fooled, <strong>can</strong> we still distinguish between what is real and what is "just a game"?</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Activities Tab -->
+        <section id="activities" class="tab-content">
+            <div class="card">
+                <h2 class="text-2xl font-bold mb-4">Exercise 1: Semantic Analysis</h2>
+                <p class="mb-4 italic">Locate four comparative adverbs in the text and replace them with high-level synonyms.</p>
+                <div class="space-y-4">
+                    <div>
+                        <label>1. Original Adverb 1:</label>
+                        <input type="text" placeholder="e.g., more rapidly">
+                        <label>Replacement Synonym:</label>
+                        <input type="text" placeholder="e.g., at a faster pace">
+                    </div>
+                    <div>
+                        <label>2. Original Adverb 2:</label>
+                        <input type="text">
+                        <label>Replacement Synonym:</label>
+                        <input type="text">
+                    </div>
+                </div>
+                <h3 class="font-bold mt-6 mb-2">Challenge Questions</h3>
+                <p>Explain the difference between the sense of "touch" and "proprioception" based on your research:</p>
+                <textarea rows="3"></textarea>
+            </div>
+
+            <div class="card">
+                <h2 class="text-2xl font-bold mb-4">Exercise 2: Modal Logic</h2>
+                <p class="mb-4 italic">Complete the reflections using (can / could / will be able to).</p>
+                <div class="space-y-4">
+                    <p>1. In the 1980s, players <input type="text" class="w-40 inline-block" style="width: 150px;"> (not/experience) 4K graphics.</p>
+                    <p>2. Nowadays, AI <input type="text" class="w-40 inline-block" style="width: 150px;"> (beat) the best chess players easily.</p>
+                    <p>3. In the future, humans <input type="text" class="w-40 inline-block" style="width: 150px;"> (connect) their brains directly.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2 class="text-2xl font-bold mb-4">Exercise 3: The Adverbial Gradient</h2>
+                <p class="mb-4">Original: "You must move the joystick <strong>slowly</strong> to avoid the trap."</p>
+                <label>Variant A (Comparative):</label>
+                <input type="text" placeholder="Rewrite the sentence...">
+                <label>Variant B (Superlative):</label>
+                <input type="text" placeholder="Rewrite the sentence...">
+                <label class="block mt-4">Which variant implies the highest risk? Why?</label>
+                <textarea rows="2"></textarea>
+            </div>
+        </section>
+
+        <!-- Project Tab -->
+        <section id="project" class="tab-content">
+            <div class="card border-l-4 border-blue-500">
+                <h2 class="text-2xl font-bold mb-4">Research Project: The Ludic Evolution</h2>
+                <p class="mb-4 text-gray-600">Choose one topic to investigate and create a digital report.</p>
+                <div class="grid md:grid-cols-3 gap-4">
+                    <div class="p-4 bg-blue-50 rounded-lg">
+                        <h3 class="font-bold mb-2">1. Ancient Strategy</h3>
+                        <p class="text-sm">Research "The Royal Game of Ur". How could they play without modern tech?</p>
+                    </div>
+                    <div class="p-4 bg-green-50 rounded-lg">
+                        <h3 class="font-bold mb-2">2. The Theory of Flow</h3>
+                        <p class="text-sm">Research Mihaly Csikszentmihalyi. How do games keep us in 'The Flow'?</p>
+                    </div>
+                    <div class="p-4 bg-purple-50 rounded-lg">
+                        <h3 class="font-bold mb-2">3. Inclusive Gaming</h3>
+                        <p class="text-sm">How can people with sensory disabilities play successfully today?</p>
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <h4 class="font-bold">Project Requirements Checklist:</h4>
+                    <ul class="list-disc ml-5 mt-2 space-y-1 text-sm">
+                        <li>Past vs. Present/Future comparison (Could / Will).</li>
+                        <li>At least 5 advanced manner adverbs (accurately, skillfully...).</li>
+                        <li>Citations from at least two different sources.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Assessment Tab -->
+        <section id="assessment" class="tab-content">
+            <div class="card">
+                <h2 class="text-2xl font-bold mb-4">Self-Assessment Rubric</h2>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-gray-100">
+                                <th class="p-3 border">Criteria</th>
+                                <th class="p-3 border text-center">Excellent</th>
+                                <th class="p-3 border text-center">Adequate</th>
+                                <th class="p-3 border text-center">Needs Improvement</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="p-3 border font-semibold">Reading Comprehension</td>
+                                <td class="p-3 border text-center"><input type="radio" name="r1"></td>
+                                <td class="p-3 border text-center"><input type="radio" name="r1"></td>
+                                <td class="p-3 border text-center"><input type="radio" name="r1"></td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 border font-semibold">Use of Modals</td>
+                                <td class="p-3 border text-center"><input type="radio" name="r2"></td>
+                                <td class="p-3 border text-center"><input type="radio" name="r2"></td>
+                                <td class="p-3 border text-center"><input type="radio" name="r2"></td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 border font-semibold">Research Quality</td>
+                                <td class="p-3 border text-center"><input type="radio" name="r3"></td>
+                                <td class="p-3 border text-center"><input type="radio" name="r3"></td>
+                                <td class="p-3 border text-center"><input type="radio" name="r3"></td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 border font-semibold">Language Production</td>
+                                <td class="p-3 border text-center"><input type="radio" name="r4"></td>
+                                <td class="p-3 border text-center"><input type="radio" name="r4"></td>
+                                <td class="p-3 border text-center"><input type="radio" name="r4"></td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 border font-semibold">Autonomy</td>
+                                <td class="p-3 border text-center"><input type="radio" name="r5"></td>
+                                <td class="p-3 border text-center"><input type="radio" name="r5"></td>
+                                <td class="p-3 border text-center"><input type="radio" name="r5"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mt-6 p-4 bg-yellow-50 rounded">
+                    <p class="text-sm"><strong>Final Reflection:</strong> What was the most challenging part of this unit? How did you overcome it?</p>
+                    <textarea rows="3"></textarea>
+                </div>
+                <button class="mt-4 bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition" onclick="window.print()">Save/Print My Progress</button>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function showTab(tabId) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            // Remove active from all buttons
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            // Show selected tab
+            document.getElementById(tabId).classList.add('active');
+            // Add active class to clicked button
+            document.getElementById('btn-' + tabId).classList.add('active');
+            
+            // Scroll to top of main content
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
